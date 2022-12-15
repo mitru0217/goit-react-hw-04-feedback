@@ -18,13 +18,13 @@ export default function App() {
   const handleChange = option => {
     switch (option) {
       case 'good':
-        setGood(good + 1);
+        setGood(prevGood => prevGood + 1);
         break;
       case 'neutral':
-        setNeutral(neutral + 1);
+        setNeutral(prevNeutral => prevNeutral + 1);
         break;
       case 'bad':
-        setBad(bad + 1);
+        setBad(prevBad => prevBad + 1);
         break;
       default:
         return;
@@ -33,7 +33,6 @@ export default function App() {
 
   const total = good + neutral + bad;
 
-  console.log(total);
   const positivePercentage = Math.trunc(((good * 0.1) / total) * 1000);
   return (
     <Container>
